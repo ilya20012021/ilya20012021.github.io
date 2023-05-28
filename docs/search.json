@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Илья Москалёв",
+    "section": "",
+    "text": "Поиск утечки данных из сети\n\n\n\n\n\n\n\nзадание\n\n\n\n\n\n\n\n\n\n\n\nИлья Москалёв\n\n\n\n\n\n\n  \n\n\n\n\nДобро пожаловать в мой бог\n\n\n\n\n\n\n\nновости\n\n\n\n\n\n\n\n\n\n\n\n25 мая 2023 г.\n\n\nИлья Москалёв\n\n\n\n\n\n\nНет подходящих элементов"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Добро пожаловать в мой бог",
+    "section": "",
+    "text": "Привет, мир!"
+  },
+  {
+    "objectID": "posts/task4/task4.html",
+    "href": "posts/task4/task4.html",
+    "title": "Поиск утечки данных из сети",
+    "section": "",
+    "text": "Зачастую в корпоротивных сетях находятся ранее зараженные системы, компрометация которых оста- лась незамеченной. Такие системы генерируют небольшое количество трафика для связи с панелью управ- ления бот-сети, но с одинаковыми параметрами – в данном случае с одинаковым номером порта. Какой номер порта используется бот-панелью для управления ботами?"
+  },
+  {
+    "objectID": "posts/task4/task4.html#задание-4-обнаружение-канала-управления",
+    "href": "posts/task4/task4.html#задание-4-обнаружение-канала-управления",
+    "title": "Поиск утечки данных из сети",
+    "section": "",
+    "text": "Зачастую в корпоротивных сетях находятся ранее зараженные системы, компрометация которых оста- лась незамеченной. Такие системы генерируют небольшое количество трафика для связи с панелью управ- ления бот-сети, но с одинаковыми параметрами – в данном случае с одинаковым номером порта. Какой номер порта используется бот-панелью для управления ботами?"
+  },
+  {
+    "objectID": "posts/task4/task4.html#ход-работы",
+    "href": "posts/task4/task4.html#ход-работы",
+    "title": "Поиск утечки данных из сети",
+    "section": "Ход работы",
+    "text": "Ход работы\nПереведём полученный дамп трафика в датафрейм Pandas:\nfrom pandas import *\ndf = read_csv(\"./traffic_security.csv\")\ndf1 = df.iloc[::,1]\nb = []\nfor i in range(len(df1)):\n  t = df1[i]\n  r = list(t)\n  v = []\n  for j in r:\n    if j != \".\":\n      v.append(j)\n    else:\n      break\n  z = \"\".join(v)\n  b.append(z)\n  v.clear()\nОпределим внутренние узлы:\ndf2 = DataFrame({\"first_num_ip\":b})\ndf3 = df2[df2[\"first_num_ip\"].isin([\"12\",\"13\",\"14\"])]\ndf4 = []\nfor i in df3.index:\n    df4.append(i)\nПолучим ответ:\ndf5 = df.loc[df4]\ndf6 = df5.loc[df5.iloc[::,4] == df5.iloc[::,4].min()]\ndf7 = list(df6.iloc[::,3])\ndf8 = set(df7)\ndf9 = list(df8)\ndf10 = []\nfor i in df9:\n    x = df7.count(i)\n    df10.append(x)\ndf11 = DataFrame({\"first_num_port\":df9,\n                  \"counts\":df10})\ndf12 = df11[df11[\"counts\"] == df11[\"counts\"].max()]\ndf13 = df6[df6.iloc[::,3] == list(df12[\"first_num_port\"])[0]]\ndf14 = list(df13.iloc[::,3])[0]\nprint(df14)\n105"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Обо мне",
+    "section": "",
+    "text": "Продам гараж"
+  }
+]
